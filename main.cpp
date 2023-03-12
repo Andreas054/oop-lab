@@ -3,12 +3,11 @@
 #include <cstring>
 using namespace std;
 
-char fisierAngajati[75] = "C:\\Users\\Dell\\Documents\\GitHub\\oop-lab\\fisierAngajati.in";
-char fisierVanzari[75] = "C:\\Users\\Dell\\Documents\\GitHub\\oop-lab\\fisierVanzari.in";
-
-
+char fisierAngajati[75] = "C:\\Users\\Dell\\CLionProjects\\oop-lab\\fisierAngajati.in";
+char fisierVanzari[75] = "C:\\Users\\Dell\\CLionProjects\\oop-lab\\fisierVanzari.in";
 
 class Angajat {
+private:
     int cod_angajat;
     char *name;
 public:
@@ -74,7 +73,7 @@ public:
             os << "Angajat Neinitializat\n";
             return os;
         }
-        os << "cod_angajat: " << angajat.cod_angajat << " name: " << angajat.name << "\n";
+        os << "cod_angajat: " << angajat.cod_angajat << ";name: " << angajat.name << "\n";
         return os;
     }
 
@@ -93,6 +92,7 @@ public:
 };
 
 class Vanzari {
+private:
     int id_vanzare, cod_angajat;
     double pret;
     char *produs;
@@ -151,7 +151,7 @@ public:
 
     bool operator==(const Vanzari &rhs) const {
         return strcmp(this->produs, rhs.produs) == 0 && this->id_vanzare == rhs.id_vanzare
-        && this->cod_angajat == cod_angajat && this->pret == rhs.pret;
+               && this->cod_angajat == rhs.cod_angajat && this->pret == rhs.pret;
     }
     bool operator!=(const Vanzari &rhs) const {
         return !(rhs == *this);
@@ -184,8 +184,8 @@ public:
             os << "Vanzare Neinitializata\n";
             return os;
         }
-        os << "id_vanzare: " << vanzare.id_vanzare << " produs: " << vanzare.produs << " cod_angajat: "
-        << vanzare.cod_angajat << " pret: " << vanzare.pret << "\n";
+        os << "id_vanzare: " << vanzare.id_vanzare << ";produs: " << vanzare.produs << ";cod_angajat: "
+           << vanzare.cod_angajat << ";pret: " << vanzare.pret << "\n";
         return os;
     }
 
@@ -203,7 +203,7 @@ public:
     }
 };
 
-void afisareAngajati(int nr_angajati, Angajat *lista_angajati) {
+void afisareAngajati(int nr_angajati, const Angajat *lista_angajati) {
     for (int i = 0; i < nr_angajati; i++)
         cout << lista_angajati[i];
 }
@@ -254,7 +254,7 @@ Angajat *stergeAngajat(int &nr_angajati, Angajat *lista_angajati) {
     return lista_angajati;
 }
 
-void afisareVanzari(int nr_vanzari, Vanzari *lista_vanzari) {
+void afisareVanzari(int nr_vanzari, const Vanzari *lista_vanzari) {
     for (int i = 0; i < nr_vanzari; i++)
         cout << lista_vanzari[i];
 }
@@ -305,7 +305,7 @@ Vanzari *stergeVanzare(int &nr_vanzari, Vanzari *lista_vanzari) {
     return lista_vanzari;
 }
 
-void getVanzariByAngajat(Angajat *lista_angajati, Vanzari *lista_vanzari, int nr_angajati, int nr_vanzari) {
+void getVanzariByAngajat(const Angajat *lista_angajati, const Vanzari *lista_vanzari, int nr_angajati, int nr_vanzari) {
     int pos = -1, cod_angajat_;
     cout << "Cod angajat de cautat=";
     cin >> cod_angajat_;
@@ -316,11 +316,14 @@ void getVanzariByAngajat(Angajat *lista_angajati, Vanzari *lista_vanzari, int nr
         }
     }
     if (pos != -1 and cod_angajat_ != 0) {
+        double suma = 0.0;
         for (int i = 0; i < nr_vanzari; i++) {
             if (lista_vanzari[i].getCodAngajat() == lista_angajati[pos].getCodAngajat()) {
-                cout << lista_vanzari[i] << "\n";
+                cout << lista_vanzari[i];
+                suma += lista_vanzari[i].getPret();
             }
         }
+        cout << "Suma totala=" << suma << "\n";
     }
     else {
         cout << "Cod angajat invalid\n";
@@ -328,16 +331,14 @@ void getVanzariByAngajat(Angajat *lista_angajati, Vanzari *lista_vanzari, int nr
 }
 
 int main() {
-
     // initializare
     int nr_angajati = 1;
     int nr_vanzari = 1;
     Angajat *lista_angajati = new Angajat[nr_angajati];
     Vanzari *lista_vanzari = new Vanzari[nr_vanzari];
 
-
     int alegere = 1;
-    while (alegere >= 1 and alegere <= 99) {
+    while (alegere >= 1 and alegere <= 7) {
         cout << "\n0-Iesire program\n"
                 "1-Afisare angajati\n2-Adaugare Angajati din Fisier\n3-Sterge Angajat\n"
                 "4-Afisare vanzari\n5-Adaugare Vanzari din Fisier\n6-Sterge Vanzare\n"
@@ -376,6 +377,7 @@ int main() {
     }
 
     delete[] lista_angajati;
+    delete[] lista_vanzari;
 
     return 0;
 }
