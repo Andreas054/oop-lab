@@ -376,6 +376,12 @@ int main() {
         }
     }
 
+    lista_angajati[0].getName();
+    lista_angajati[0].setCodAngajat(0);
+    lista_vanzari[0].getProdus();
+    lista_vanzari[0].setIdVanzare(0);
+    lista_vanzari[0].setPret(0.0);
+
     delete[] lista_angajati;
     delete[] lista_vanzari;
 
