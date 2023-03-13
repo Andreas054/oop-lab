@@ -14,7 +14,7 @@ if(DEFINED WARNINGS_AS_ERRORS)
 elseif(DEFINED ENV{WARNINGS_AS_ERRORS})
   set(WARNINGS_AS_ERRORS $ENV{WARNINGS_AS_ERRORS})
 else()
-  set(WARNINGS_AS_ERRORS OFF)
+  set(WARNINGS_AS_ERRORS ON)
 endif()
 
 ###############################################################################

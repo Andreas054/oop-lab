@@ -3,8 +3,8 @@
 #include <cstring>
 using namespace std;
 
-char fisierAngajati[75] = "C:\\Users\\Dell\\CLionProjects\\oop-lab\\fisierAngajati.in";
-char fisierVanzari[75] = "C:\\Users\\Dell\\CLionProjects\\oop-lab\\fisierVanzari.in";
+char fisierAngajati[75] = "C:\\Users\\DelMX\\Documents\\GitHub\\oop-lab\\fisierAngajati.in";
+char fisierVanzari[75] = "C:\\Users\\DelMX\\Documents\\GitHub\\oop-lab\\fisierVanzari.in";
 
 class Angajat {
 private:
