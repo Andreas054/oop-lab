@@ -2,10 +2,14 @@
 #include <iostream>
 #include <fstream>
 
-Client::Client() : Persoana(), cantitate_achiz(0) {}
+Client::Client() : Persoana(), cantitate_achiz(0) {
+    ++nr_clienti;
+}
 
-Client::Client(const std::string name, const std::string data_nastere, const int cod, const int cantitate_achiz)
-            : Persoana(name, data_nastere, cod), cantitate_achiz(cantitate_achiz) {}
+Client::Client(const std::string &name, const std::string &data_nastere, const int cod, const int cantitate_achiz)
+            : Persoana(name, data_nastere, cod), cantitate_achiz(cantitate_achiz) {
+    ++nr_clienti;
+}
 
 bool Client::operator==(const Client &rhs) const {
     return this->name == rhs.name && this->cod == rhs.cod && this->data_nastere == rhs.data_nastere &&
@@ -59,8 +63,16 @@ int Client::getCantitateAchiz() const {
     return cantitate_achiz;
 }
 
-void Client::setCantitate_Achiz(const int cantitate_achiz) {
-    Client::cantitate_achiz = cantitate_achiz;
+void Client::setCantitate_Achiz(const int cantitate_achiz_) {
+    Client::cantitate_achiz = cantitate_achiz_;
+}
+
+void Client::decNrClienti() {
+    nr_clienti--;
+}
+
+int Client::getNrClienti() {
+    return nr_clienti;
 }
 
 Client::~Client() = default;

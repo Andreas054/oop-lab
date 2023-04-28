@@ -2,9 +2,9 @@
 #include <iostream>
 #include <fstream>
 
-Vanzari::Vanzari(std::string name, int cod_persoana, int id, double pret) : name(name), cod_persoana(cod_persoana), id(id), pret(pret) {}
-
 Vanzari::Vanzari() : name("nedefinit"), cod_persoana(0), id(0), pret(0.0) {}
+
+Vanzari::Vanzari(const std::string &name, const int cod_persoana, const int id, const double pret) : name(name), cod_persoana(cod_persoana), id(id), pret(pret) {}
 
 const std::string &Vanzari::getName() const {
     return name;
@@ -22,20 +22,20 @@ double Vanzari::getPret() const {
     return pret;
 }
 
-void Vanzari::setName(const std::string &name) {
-    Vanzari::name = name;
+void Vanzari::setName(const std::string &name_) {
+    Vanzari::name = name_;
 }
 
-void Vanzari::setCod_persoana(int cod_persoana) {
-    Vanzari::cod_persoana = cod_persoana;
+void Vanzari::setCod_persoana(int cod_persoana_) {
+    Vanzari::cod_persoana = cod_persoana_;
 }
 
-void Vanzari::setId(int id) {
-    Vanzari::id = id;
+void Vanzari::setId(int id_) {
+    Vanzari::id = id_;
 }
 
-void Vanzari::setPret(double pret) {
-    Vanzari::pret = pret;
+void Vanzari::setPret(double pret_) {
+    Vanzari::pret = pret_;
 }
 
 bool Vanzari::operator==(const Vanzari &rhs) const {

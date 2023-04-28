@@ -6,7 +6,7 @@ Angajat::Angajat() : Persoana(), data_angajare("01-01-2000") {
     ++nr_angajati;
 }
 
-Angajat::Angajat(const std::string name, const std::string data_nastere, const int cod, const std::string data_angajare)
+Angajat::Angajat(const std::string &name, const std::string &data_nastere, const int cod, const std::string &data_angajare)
             : Persoana(name, data_nastere, cod), data_angajare(data_angajare) {
     ++nr_angajati;
 }
@@ -58,11 +58,11 @@ std::string &Angajat::getDataAngajare() {
     return data_angajare;
 }
 
-void Angajat::setDataAngajare(std::string data_angajare) {
-    Angajat::data_angajare = data_angajare;
+void Angajat::setDataAngajare(std::string data_angajare_) {
+    Angajat::data_angajare = data_angajare_;
 }
 
-void Angajat::decNrAng() {
+void Angajat::decNrAngajati() {
     nr_angajati--;
 }
 

@@ -9,9 +9,9 @@ protected:
     int cod_persoana, id;
     double pret;
 public:
-    Vanzari(std::string name, int cod_persoana, int id, double pret);
-
     Vanzari();
+
+    Vanzari(const std::string &name, const int cod_persoana, const int id, const double pret);
 
     const std::string &getName() const;
 

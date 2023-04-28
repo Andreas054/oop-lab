@@ -10,7 +10,7 @@ protected:
 public:
     Persoana();
 
-    Persoana(std::string name, std::string data_nastere, int cod);
+    Persoana(const std::string &name, const std::string &data_nastere, const int cod);
 
     const std::string &getName() const;
 

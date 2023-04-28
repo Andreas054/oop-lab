@@ -11,7 +11,7 @@ private:
 public:
     Angajat();
 
-    Angajat(std::string name, std::string data_nastere, int cod, std::string data_angajare);
+    Angajat(const std::string &name, const std::string &data_nastere, const int cod, const std::string &data_angajare);
 
     bool operator==(const Angajat &rhs) const;
 
@@ -29,7 +29,7 @@ public:
 
     void setDataAngajare(std::string data_angajare);
 
-    void decNrAng();
+    static void decNrAngajati();
 
     static int getNrAngajati();
 

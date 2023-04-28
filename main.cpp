@@ -15,6 +15,7 @@ std::string fisierClienti = "C:\\Users\\Dell\\CLionProjects\\oop-lab\\fisierClie
 std::string fisierVanzari = "C:\\Users\\Dell\\CLionProjects\\oop-lab\\fisierVanzari.in";
 
 int Angajat::nr_angajati = 0;
+int Client::nr_clienti = 0;
 
 int main() {
     // initializare
@@ -23,8 +24,11 @@ int main() {
     std::vector<std::shared_ptr<Vanzari>> lista_vanzari;
 
     {
-        Angajat tmp("nedefinit", "01-01-1900", 0, "01-01-1900");
-        lista_angajati.push_back(std::make_shared<Angajat>(tmp));
+        Angajat tmp1("AngajatNedefinit", "01-01-1900", 0, "01-01-1900");
+        lista_angajati.push_back(std::make_shared<Angajat>(tmp1));
+
+        Client tmp2("ClientNedefinit", "01-01-1900", 0, 0);
+        lista_clienti.push_back(std::make_shared<Client>(tmp2));
     }
 
     meniu(lista_angajati, lista_clienti, lista_vanzari, fisierAngajati, fisierClienti, fisierVanzari );

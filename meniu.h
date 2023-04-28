@@ -8,7 +8,7 @@
 #include "functii.h"
 
 void meniu(std::vector<std::shared_ptr<Angajat>> &lista_angajati, std::vector<std::shared_ptr<Client>> &lista_clienti, std::vector<std::shared_ptr<Vanzari>> &lista_vanzari,
-           std::string fisierAngajati, std::string fisierClienti, std::string fisierVanzari) {
+           const std::string &fisierAngajati, const std::string &fisierClienti, const std::string &fisierVanzari) {
     int alegere = 1;
 
     while (alegere) {
@@ -16,8 +16,9 @@ void meniu(std::vector<std::shared_ptr<Angajat>> &lista_angajati, std::vector<st
                      "1-Afisare Angajati\t2-Adaugare Angajati din Fisier\t3-Sterge Angajat\n"
                      "4-Afisare Clienti\t5-Adaugare Clienti din Fisier\t6-Sterge Client\n"
                      "7-Afisare Vanzari\t8-Adaugare Vanzari din Fisier\t9-Sterge Vanzare\n"
-                     "10-Afisare Vanzari pentru un Angajat\n11-Afisare data angajare pentru un Angajat\n"
-                     "12-Afisare numar Angajati\n13-Afisare date implicite Angajat\n"
+                     "10-Afisare numar Angajati\t11-Afisare numar Clienti\n"
+                     "12-Afisare Vanzari pentru un Angajat\n13-Afisare data angajare pentru un Angajat\n"
+                     "14-Afisare date implicite Angajat\n"
                      "\nAlegere=";
         std::cin >> alegere;
 
@@ -65,15 +66,18 @@ void meniu(std::vector<std::shared_ptr<Angajat>> &lista_angajati, std::vector<st
                 stergeVanzare(lista_vanzari);
                 break;
             case 10:
-                getVanzariByAngajat(lista_angajati, lista_vanzari);
-                break;
-            case 11:
-                getDataAngByAngajat(lista_angajati);
-                break;
-            case 12:
                 afisareNrAngajati();
                 break;
+            case 11:
+                afisareNrClienti();
+                break;
+            case 12:
+                getVanzariByAngajat(lista_angajati, lista_vanzari);
+                break;
             case 13:
+                getDataAngByAngajat(lista_angajati);
+                break;
+            case 14:
                 afisareDateDefaultAngajat();
                 break;
         }
